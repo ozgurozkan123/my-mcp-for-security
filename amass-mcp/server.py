@@ -107,8 +107,10 @@ def amass(
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 8000))
     
+    # Use streamable-http transport for FastMCP 3.0
+    # This creates the /mcp endpoint that accepts POST requests
     mcp.run(
-        transport="sse",
+        transport="streamable-http",
         host="0.0.0.0",
         port=port,
         path="/mcp"
